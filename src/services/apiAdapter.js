@@ -1,4 +1,4 @@
-const API_URL = "/https://t-odo-backend-8351rcxxj-shivendra188s-projects.vercel.app/api/todos";
+const API_URL = "http://localhost:5000/api/todos";
 
 export const api = {
   // ✅ Fetch all todos
