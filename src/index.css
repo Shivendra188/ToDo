@@ -1,0 +1,254 @@
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --radius: 10px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --transition: 200ms ease;
+}
+
+body.theme-dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Global ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--muted);
+}
+
+.btn.ghost:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Inputs ---------- */
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  transition: border var(--transition), box-shadow var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* ---------- Todo Items ---------- */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.todo-item:hover {
+  transform: translateY(-1px);
+}
+
+.todo-text {
+  flex: 1;
+  margin-right: 8px;
+  color: var(--text);
+}
+
+/* ---------- Layout Utilities ---------- */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---------- Responsive ---------- */
+
+/* 📱 Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .container {
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 14px;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .row {
+    gap: 6px;
+  }
+}
+
+/* 📲 Medium Mobile (481px - 640px) */
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 14px;
+  }
+}
+
+/* 💻 Tablets (641px - 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 15px;
+  }
+}
+
+/* 🖥️ Large Screens (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .container {
+    max-width: 850px;
+  }
+
+  .card {
+    padding: 18px 22px;
+  }
+
+  .btn {
+    padding: 12px 18px;
+  }
+}
+
+/* 🧠 Ultra-Wide (1440px+) */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}

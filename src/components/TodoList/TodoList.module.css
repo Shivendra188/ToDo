@@ -1,0 +1,62 @@
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ✅ Smooth transition effect when items reorder */
+.todoTransition {
+  transition: all 0.4s ease;
+  will-change: transform, opacity;
+}
+
+/* ✅ Add slight motion when entering/leaving */
+.todoTransition:enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.todoTransition:enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.todoTransition:exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.todoTransition:exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+}
+/* ✅ Overdue indicator (red highlight flash when overdue) */
+.overdueCard {
+  animation: overdueFlash 1.5s ease-in-out;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+@keyframes overdueFlash {
+  0% {
+    background-color: rgba(239, 68, 68, 0);
+  }
+  30% {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* ✅ Overdue text style */
+.due.overdue {
+  color: #ef4444;
+  font-weight: 600;
+  animation: blinkRed 1s infinite alternate;
+}
+
+@keyframes blinkRed {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}

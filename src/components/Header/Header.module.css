@@ -1,0 +1,37 @@
+.header {
+  background: var(--surface);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 20px;
+  align-items: center;
+  justify-content: space-between;
+  transition: all var(--transition);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.subtitle {
+  margin-top: 2px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.actions {
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .actions {
+    justify-content: center;
+  }
+}
